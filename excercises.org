@@ -1,0 +1,143 @@
+#+TITLE: Excercises
+#+OPTIONS: toc:nil
+
+* Notes
+** Methods
+   Quick diagram of what your methods should look like:
+
+#+BEGIN_SRC java
+static <type> <name> (<inputs>){
+
+}
+#+END_SRC
+   some examples:
+#+BEGIN_SRC java
+//This is a method that always returns five
+static int alwaysFive() {
+   return 5;
+}
+var x = alwaysFive(); // x will be five
+
+//This is a method that takes two arguments and adds them
+static int add(int a, int b){
+   return a + b;
+}
+var x = add(1,2); // x will be 3
+
+//Here's the method we wrote that adds up numbers
+static int sum(int a){
+   var sum = 0;
+   while(! (a == 0)){
+      sum = sum + a;
+      a = a - 1;
+   }
+   return sum;
+}
+
+//This is a method that takes a boolean & an integer. Returns "Yep!" if the boolean is true & the number is more than 5
+//Otherwise it returns "Nope!"
+static String yepOrNope(boolan b, int x){
+   if(b){
+     if(x > 5){
+        return "Yep!";
+     }else{
+        return "Nope!";
+     }
+   }else{
+     return "Nope!";
+}
+
+var x = yepOrNope(true,6); // x will be "Yep!"
+
+#+END_SRC
+
+** Excercises
+   
+*** Product
+    Write a method called ~product~ that computes the result of adding up all numbers from 1 to the input.
+
+    Examples:
+    - ~product(1)~ -> 1
+    - ~roduct(2)~ -> 2
+    - ~roduct(3)~ -> 6
+    - ~roduct(5)~ -> 120
+
+    /hint:/ This should be very similar to the ~add~ method we wrote.
+    Think carefully about what value the answer should start at.
+
+*** Is Even
+    Write a function called ~isEven~ that determines if an integer is even.
+
+    Examples:
+    - ~isEven(2)~ -> ~true~
+    - ~isEven(3)~ -> ~false~
+
+*** Some type checking
+    
+    Look at the ~yepOrNope~ method defined above. 
+    Is writing ~yepOrNope(true,"hello")~ valid? Will it run?
+
+    Is it possible to write a method that sometimes returns an integer, 
+    and sometimes returns a boolean? If so, write one, if not explain why.
+
+*** The idea of "and"
+
+    Like the "not" (~!~), there are other operations that work on booleans.
+    One  is and, written ~&&~. And is true if both of the inputs are true.
+    Examples:
+    - ~true && true~ -> ~true~
+    - ~true && false~ -> ~false~
+    - ~false && true~ -> ~false~
+    - ~false && false~ -> ~false~
+    - ~2 < 5 && 3 == 3~ -> ~true~
+    - ~2 < 5 && 3 == 4~ -> ~false~
+    - ~5 > 2 && "hello"~ -> Does not run becuase "hello" is not a boolean.
+      
+    Rewrite the ~yepOrNope~ method, but using only one if statement.
+    
+    
+*** Counting
+
+    Here's an interesting method
+#+BEGIN_SRC java
+//Prints out every number from 0 to a
+static void count(int a){
+   var count = 0;
+   while(count < a){
+      System.out.println(count);
+   }
+   return;
+}
+#+END_SRC
+    /Note:/ This method doesn't return anything. It's type is ~void~. 
+    It uses print statements inside of itself.
+    
+    Copy the ~count~ code to a method called ~fizzbuzz~ and modify it do this:
+    If the number is divisible by 3, print "Fizz" instead of the number
+    If the number is divisible by 5, print "Buzz" instead of the number
+    If the number is divisible by 3 & 5, print "FizzBuzz" instead of the number
+    
+    Example Output for ~fizzbuzz(20)~:
+    1
+    2
+    Fizz
+    4
+    Buzz
+    Fizz
+    7
+    8
+    Fizz
+    Buzz
+    11
+    Fizz
+    13
+    14
+    FizzBuzz
+    16
+    17
+    Fizz
+    19
+    Buzz
+    
+    *Challenge Problem:* Rewrite the original ~count~ method without using _any_ loops.
+
